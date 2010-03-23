@@ -5,7 +5,7 @@
  * Alles! ;)
  * Webservice für imdb.com
  * Webservice für kino.de
- * Webservice für ofdb.de
+ * Webservice für cinefacts.de / chilidog.project-equinox.de (enthält links zu den bekannten seiten)
  * Empfehlungen auf Basis bereits vorhanden Filme
  * Empfehlungen auf Basis der 3 Services
  * Cover Search Webservice (google/bing/movieposterdb.com/moviegoods.com/impawards.com)
