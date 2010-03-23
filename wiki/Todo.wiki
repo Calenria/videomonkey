@@ -2,7 +2,7 @@
 #labels Featured
 
 = Todo =
- * Alles! ;)
+ * Indizierung der Video Dateien
  * Webservice für imdb.com
  * Webservice für kino.de
  * Webservice für cinefacts.de / chilidog.project-equinox.de (enthält links zu den bekannten seiten)
