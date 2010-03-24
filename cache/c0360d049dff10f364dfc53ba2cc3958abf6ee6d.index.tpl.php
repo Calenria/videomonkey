@@ -1,317 +1,249 @@
-<?php /*%%SmartyHeaderCode:9531048014ba7c4d0d73b76-88841371%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:890137094ba9436c027433-36655163%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c0360d049dff10f364dfc53ba2cc3958abf6ee6d' => 
     array (
       0 => './templates/index.tpl',
-      1 => 1269286094,
-    ),
-    'b26c14e70ee48087e07123da50c978a5849bf21e' => 
-    array (
-      0 => 'config/test.conf',
-      1 => 1267803221,
+      1 => 1269384041,
     ),
     '97c13ae6868bbc459509c9f1b968154acd23eecc' => 
     array (
       0 => './templates/header.tpl',
-      1 => 1267803221,
+      1 => 1269383646,
     ),
     '3a4f6f0d327fc7bc3ea86f63906a1bf934ca50c7' => 
     array (
       0 => './templates/footer.tpl',
-      1 => 1267803221,
+      1 => 1269383421,
     ),
   ),
-  'nocache_hash' => '9531048014ba7c4d0d73b76-88841371',
-  'has_nocache_code' => true,
+  'nocache_hash' => '890137094ba9436c027433-36655163',
+  'has_nocache_code' => false,
   'cache_lifetime' => 120,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_modifier_capitalize')) include 'libs/smarty/plugins/modifier.capitalize.php';
-if (!is_callable('smarty_modifier_date_format')) include 'libs/smarty/plugins/modifier.date_format.php';
-if (!is_callable('smarty_modifier_upper')) include 'libs/smarty/plugins/modifier.upper.php';
-?><HTML>
-<HEAD>
-<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
-<script type="text/javascript" language="JavaScript" src="/javascripts/overlib.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/Strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de"> <head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="Author" content="Sascha Hanke" /> 
 
-<TITLE>foo - <?php echo $_smarty_tpl->getVariable('Name')->value;?>
-</TITLE>
-</HEAD>
-<BODY bgcolor="#ffffff">
+<style type="text/css"><!--
+body
+{
+ font-family:Verdana;
+ font-size:12px;
+ background-color:#003333;
+ text-align:center;
+}
+ 
+h1 {font-size:18px;color:#ffffff;margin:0px;}
+h2 {font-size:14px;color:#ffffff;}
+h3 {font-size:14px;color:#ffffff;}
+p {margin-top:0px;}
+ 
+/* F¸r Quellcode-Beispiele im Text */
+code
+{
+ font-size:14px;
+ color:#ccffff;
+}
+ 
+/* Der Kasten mit dem Quellcode */
+pre
+{
+ font-size:14px;
+ color:#ccffff;
+}
+ 
+a:link, a:visited, a:active, a:hover
+{
+  text-decoration:none;
+  font-weight:bold;
+  color:#ffffff;
+  font-size:12px;
+}
+a:active, a:hover
+{
+  color:#cd9348;
+}
+a.menu:link, a.menu:visited
+{
+  color:#cd9348;
+}
+a.menu:active, a.menu:hover
+{
+  color:#eeeeee;
+}
+ 
+a.vtitle:link, a.vtitle:visited
+{
+  color:#466868;
+}
+a.vtitle:active, a.vtitle:hover
+{
+  color:#eeeeee;
+}
+ 
+/* Die Titelzeile */
+#title {
+padding-top:15px;
+height:24px;
+}
+ 
+/* Das Men¸ */
+#menu {
+color:#ffffff;
+text-align:center;
+padding:10px 0px;
+border-top:1px solid #669999;
+clear:right;
+}
+ 
+/* Men¸ Tabs */
+#tab {
+float:left;
+width:110px;
+border:1px solid #ffffff;
+background-color:#466868;
+padding:5px;
+color:#ffffff;
+}
+ 
+#cleantab {
+float:left;
+width:2px;
+padding:5px;
+}
+ 
+/* Der Inhalt */
+#content {
+border:1px solid #ffffff;
+background-color:#669999;
+padding:10px;
+margin-top:3px;
+color:#ffffff;
+}
+ 
+/* Video Container */
+#video {
+float:left;
+width:31%;
+margin:3px;
+padding:2px;
+color:#ffffff;
+}
+#video_cover {
+float:left;
+width:100px;
+height:150x;
+background-color:#466868;
+}
+#vtitle {
+text-decoration:none;
+font-size:18px;
+}
+#movie_infos {
+margin-left:110px;
+}
+//--></style>
+
+<title>VideoMonkey - Das Schweizer Messer der Videoverwaltung</title> 
+</head> 
+<body> 
+
+<!--  Gesamter Inhalt  --> 
+<div style="width:85%;margin:0px auto;text-align:left;"> 
+<img src="templates/logo.png" style="float:right;width:156px; height:39px;" alt="Logo" /> 
+<h1 id="title">VideoMonkey</h1> 
+ 
+ 
+ 
+<!--  Men√º  --> 
+<div id="menu"> 
+<div id="cleantab"></div> 
+<div id="tab"><a class="menu" href="#">√úbersicht</a></div> 
+<div id="tab"><a class="menu" href="#">Suche</a></div> 
+<div id="tab"><a class="menu" href="#">Zufall</a></div> 
+<div id="tab"><a class="menu" href="#">Neu</a></div> 
+<div id="tab"><a class="menu" href="#">Admin</a></div> 
+</div> 
+ 
+<!-- Inhalt --> 
+<div id="content"> 
+<h2>#123 | A | B | C | usw.</h2> 
+ 
+<div id="video_row"> 
+	<div id="video"> 
+		<img src="templates/predator.jpg" id="video_cover" alt="Predatopr" /> 
+		<div id="movie_infos"><a class="vtitle" href="#">Predator 1</a><hr style="border:dotted #466868 1px;"/> 
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p> 
+			<p>Director: Arschkrampe
+			<br />Land: Irgendwo
+			<br />Jahr: 1845</p> 
+			
+		</div> 
+	</div> 
+	<div id="video"> 
+		<img src="templates/predator.jpg" id="video_cover" alt="Predatopr" /> 
+		<div id="movie_infos"><a class="vtitle" href="#">Predator 2</a><hr style="border:dotted #466868 1px;"/> 
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p> 
+			<p>Director: Arschkrampe
+			<br />Land: Irgendwo
+			<br />Jahr: 1845</p> 
+			
+		</div> 
+	</div> 
+	<div id="video"> 
+		<img src="templates/predator.jpg" id="video_cover" alt="Predatopr" /> 
+		<div id="movie_infos"><a class="vtitle" href="#">Predator 3</a><hr style="border:dotted #466868 1px;"/> 
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p> 
+			<p>Director: Arschkrampe
+			<br />Land: Irgendwo
+			<br />Jahr: 1845</p> 
+			
+		</div> 
+	</div> 
+</div> 
+<div style="clear:both;"></div> 
+<div id="video_row"> 
+	<div id="video"> 
+		<img src="templates/predator.jpg" id="video_cover" alt="Predatopr" /> 
+		<div id="movie_infos"><a class="vtitle" href="#">Predator 1</a><hr style="border:dotted #466868 1px;"/> 
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p> 
+			<p>Director: Arschkrampe
+			<br />Land: Irgendwo
+			<br />Jahr: 1845</p> 
+			
+		</div> 
+	</div> 
+	<div id="video"> 
+		<img src="templates/predator.jpg" id="video_cover" alt="Predatopr" /> 
+		<div id="movie_infos"><a class="vtitle" href="#">Predator 2</a><hr style="border:dotted #466868 1px;"/> 
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p> 
+			<p>Director: Arschkrampe
+			<br />Land: Irgendwo
+			<br />Jahr: 1845</p> 
+			
+		</div> 
+	</div> 
+	<div id="video"> 
+		<img src="templates/predator.jpg" id="video_cover" alt="Predatopr" /> 
+		<div id="movie_infos"><a class="vtitle" href="#">Predator 3</a><hr style="border:dotted #466868 1px;"/> 
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p> 
+			<p>Director: Arschkrampe
+			<br />Land: Irgendwo
+			<br />Jahr: 1845</p> 
+			
+		</div> 
+	</div> 
+</div> 
+<div style="clear:both;"></div> 
+ 
+<p style="text-align:left;"><a class="prev" href="index.xhtml">Zur√ºck</a></p> 
+</div> 
+</div>
 
 
-<PRE>
-
-
-<b>
-Title: Welcome To Smarty!
-</b>
-The current date and time is 2010-03-22 22:20:00
-
-The value of global assigned variable $SCRIPT_NAME is /videomonkey/index.php
-
-Example of accessing server environment variable SERVER_NAME: 192.168.2.2
-
-The value of {$Name} is <b><?php echo $_smarty_tpl->getVariable('Name')->value;?>
-</b>
-
-variable modifier example of {$Name|upper}
-
-<b><?php echo smarty_modifier_upper($_smarty_tpl->getVariable('Name')->value);?>
-</b>
-
-
-An example of a section loop:
-
-	1 * John Doe
-	2 * Mary Smith
-	3 . James Johnson
-	4 . Henry Case
-
-An example of section looped key values:
-
-	phone: 1<br>
-	fax: 2<br>
-	cell: 3<br>
-	phone: 555-4444<br>
-	fax: 555-3333<br>
-	cell: 760-1234<br>
-<p>
-
-testing strip tags<table border=0><tr><td><A HREF="/videomonkey/index.php"><font color="red">This is a  test     </font></A></td></tr></table>
-
-</PRE>
-
-This is an example of the html_select_date function:
-
-<form>
-<select name="Date_Month">
-<option label="January" value="01">January</option>
-<option label="February" value="02">February</option>
-<option label="March" value="03" selected="selected">March</option>
-<option label="April" value="04">April</option>
-<option label="May" value="05">May</option>
-<option label="June" value="06">June</option>
-<option label="July" value="07">July</option>
-<option label="August" value="08">August</option>
-<option label="September" value="09">September</option>
-<option label="October" value="10">October</option>
-<option label="November" value="11">November</option>
-<option label="December" value="12">December</option>
-</select>
-<select name="Date_Day">
-<option label="01" value="1">01</option>
-<option label="02" value="2">02</option>
-<option label="03" value="3">03</option>
-<option label="04" value="4">04</option>
-<option label="05" value="5">05</option>
-<option label="06" value="6">06</option>
-<option label="07" value="7">07</option>
-<option label="08" value="8">08</option>
-<option label="09" value="9">09</option>
-<option label="10" value="10">10</option>
-<option label="11" value="11">11</option>
-<option label="12" value="12">12</option>
-<option label="13" value="13">13</option>
-<option label="14" value="14">14</option>
-<option label="15" value="15">15</option>
-<option label="16" value="16">16</option>
-<option label="17" value="17">17</option>
-<option label="18" value="18">18</option>
-<option label="19" value="19">19</option>
-<option label="20" value="20">20</option>
-<option label="21" value="21">21</option>
-<option label="22" value="22" selected="selected">22</option>
-<option label="23" value="23">23</option>
-<option label="24" value="24">24</option>
-<option label="25" value="25">25</option>
-<option label="26" value="26">26</option>
-<option label="27" value="27">27</option>
-<option label="28" value="28">28</option>
-<option label="29" value="29">29</option>
-<option label="30" value="30">30</option>
-<option label="31" value="31">31</option>
-</select>
-<select name="Date_Year">
-<option label="1998" value="1998">1998</option>
-<option label="1999" value="1999">1999</option>
-<option label="2000" value="2000">2000</option>
-<option label="2001" value="2001">2001</option>
-<option label="2002" value="2002">2002</option>
-<option label="2003" value="2003">2003</option>
-<option label="2004" value="2004">2004</option>
-<option label="2005" value="2005">2005</option>
-<option label="2006" value="2006">2006</option>
-<option label="2007" value="2007">2007</option>
-<option label="2008" value="2008">2008</option>
-<option label="2009" value="2009">2009</option>
-<option label="2010" value="2010" selected="selected">2010</option>
-</select>
-</form>
-
-This is an example of the html_select_time function:
-
-<form>
-<select name="Time_Hour">
-<option label="01" value="01">01</option>
-<option label="02" value="02">02</option>
-<option label="03" value="03">03</option>
-<option label="04" value="04">04</option>
-<option label="05" value="05">05</option>
-<option label="06" value="06">06</option>
-<option label="07" value="07">07</option>
-<option label="08" value="08">08</option>
-<option label="09" value="09">09</option>
-<option label="10" value="10" selected="selected">10</option>
-<option label="11" value="11">11</option>
-<option label="12" value="12">12</option>
-</select>
-<select name="Time_Minute">
-<option label="00" value="00">00</option>
-<option label="01" value="01">01</option>
-<option label="02" value="02">02</option>
-<option label="03" value="03">03</option>
-<option label="04" value="04">04</option>
-<option label="05" value="05">05</option>
-<option label="06" value="06">06</option>
-<option label="07" value="07">07</option>
-<option label="08" value="08">08</option>
-<option label="09" value="09">09</option>
-<option label="10" value="10">10</option>
-<option label="11" value="11">11</option>
-<option label="12" value="12">12</option>
-<option label="13" value="13">13</option>
-<option label="14" value="14">14</option>
-<option label="15" value="15">15</option>
-<option label="16" value="16">16</option>
-<option label="17" value="17">17</option>
-<option label="18" value="18">18</option>
-<option label="19" value="19">19</option>
-<option label="20" value="20" selected="selected">20</option>
-<option label="21" value="21">21</option>
-<option label="22" value="22">22</option>
-<option label="23" value="23">23</option>
-<option label="24" value="24">24</option>
-<option label="25" value="25">25</option>
-<option label="26" value="26">26</option>
-<option label="27" value="27">27</option>
-<option label="28" value="28">28</option>
-<option label="29" value="29">29</option>
-<option label="30" value="30">30</option>
-<option label="31" value="31">31</option>
-<option label="32" value="32">32</option>
-<option label="33" value="33">33</option>
-<option label="34" value="34">34</option>
-<option label="35" value="35">35</option>
-<option label="36" value="36">36</option>
-<option label="37" value="37">37</option>
-<option label="38" value="38">38</option>
-<option label="39" value="39">39</option>
-<option label="40" value="40">40</option>
-<option label="41" value="41">41</option>
-<option label="42" value="42">42</option>
-<option label="43" value="43">43</option>
-<option label="44" value="44">44</option>
-<option label="45" value="45">45</option>
-<option label="46" value="46">46</option>
-<option label="47" value="47">47</option>
-<option label="48" value="48">48</option>
-<option label="49" value="49">49</option>
-<option label="50" value="50">50</option>
-<option label="51" value="51">51</option>
-<option label="52" value="52">52</option>
-<option label="53" value="53">53</option>
-<option label="54" value="54">54</option>
-<option label="55" value="55">55</option>
-<option label="56" value="56">56</option>
-<option label="57" value="57">57</option>
-<option label="58" value="58">58</option>
-<option label="59" value="59">59</option>
-</select>
-<select name="Time_Second">
-<option label="00" value="00" selected="selected">00</option>
-<option label="01" value="01">01</option>
-<option label="02" value="02">02</option>
-<option label="03" value="03">03</option>
-<option label="04" value="04">04</option>
-<option label="05" value="05">05</option>
-<option label="06" value="06">06</option>
-<option label="07" value="07">07</option>
-<option label="08" value="08">08</option>
-<option label="09" value="09">09</option>
-<option label="10" value="10">10</option>
-<option label="11" value="11">11</option>
-<option label="12" value="12">12</option>
-<option label="13" value="13">13</option>
-<option label="14" value="14">14</option>
-<option label="15" value="15">15</option>
-<option label="16" value="16">16</option>
-<option label="17" value="17">17</option>
-<option label="18" value="18">18</option>
-<option label="19" value="19">19</option>
-<option label="20" value="20">20</option>
-<option label="21" value="21">21</option>
-<option label="22" value="22">22</option>
-<option label="23" value="23">23</option>
-<option label="24" value="24">24</option>
-<option label="25" value="25">25</option>
-<option label="26" value="26">26</option>
-<option label="27" value="27">27</option>
-<option label="28" value="28">28</option>
-<option label="29" value="29">29</option>
-<option label="30" value="30">30</option>
-<option label="31" value="31">31</option>
-<option label="32" value="32">32</option>
-<option label="33" value="33">33</option>
-<option label="34" value="34">34</option>
-<option label="35" value="35">35</option>
-<option label="36" value="36">36</option>
-<option label="37" value="37">37</option>
-<option label="38" value="38">38</option>
-<option label="39" value="39">39</option>
-<option label="40" value="40">40</option>
-<option label="41" value="41">41</option>
-<option label="42" value="42">42</option>
-<option label="43" value="43">43</option>
-<option label="44" value="44">44</option>
-<option label="45" value="45">45</option>
-<option label="46" value="46">46</option>
-<option label="47" value="47">47</option>
-<option label="48" value="48">48</option>
-<option label="49" value="49">49</option>
-<option label="50" value="50">50</option>
-<option label="51" value="51">51</option>
-<option label="52" value="52">52</option>
-<option label="53" value="53">53</option>
-<option label="54" value="54">54</option>
-<option label="55" value="55">55</option>
-<option label="56" value="56">56</option>
-<option label="57" value="57">57</option>
-<option label="58" value="58">58</option>
-<option label="59" value="59">59</option>
-</select>
-<select name="Time_Meridian">
-<option label="AM" value="am">AM</option>
-<option label="PM" value="pm" selected="selected">PM</option>
-</select>
-
-</form>
-
-This is an example of the html_options function:
-
-<form>
-<select name=states>
-<option label="New York" value="NY">New York</option>
-<option label="Nebraska" value="NE" selected="selected">Nebraska</option>
-<option label="Kansas" value="KS">Kansas</option>
-<option label="Iowa" value="IA">Iowa</option>
-<option label="Oklahoma" value="OK">Oklahoma</option>
-<option label="Texas" value="TX">Texas</option>
-
-</select>
-</form>
-
-</BODY>
-</HTML>
-
+</body> 
+</html>
