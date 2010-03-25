@@ -19,9 +19,15 @@ class WebInfo
 		$this->clear_unused_infos();
 		$this->get_imdb_rating();
 	}
-
+	
+	/**
+	 * Infos von der IMDB holen.
+	 * Überschriften stehen in divs der Klasse info
+	 * Der Content in den inneren divs
+	 */
 	function get_imdb_infos($html,$tag) {
 		foreach ($html->find($tag) as $info) {
+			//Key zur zuordnung holen
 			$type = $info->find('h5',0)->innertext;
 			$type = $type . $info->find('h3',0)->innertext;
 			$type = $this->clean_index($type);
@@ -49,6 +55,9 @@ class WebInfo
 		$this->imdb_clean_info['rating'] = $tmp;
 	}
 	
+	/**
+	 * Säubern der Keys
+	 */
 	function clean_index($text) {
 		$text = trim(strip_tags(trim($text)));
 		$text = str_replace(':','',$text);
@@ -59,6 +68,9 @@ class WebInfo
 		return $this->clean($text);
 	}
 	
+	/**
+	 * Säubern der inhalte
+	 */
 	function clean($text) {
 		$text = trim($text);
 		
