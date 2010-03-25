@@ -5,10 +5,16 @@ class WebInfo
 {
 	
 	var $imdb_info = array();
+	var $imdb_clean_info = array();
 	
-	function get_imdb_source($code,$type)
+	function get_imdb($wich,$code,$type) {
+		$this->get_imdb_source($wich,$code,$type);
+		return $this->imdb_clean_info;
+	}
+	
+	function get_imdb_source($wich,$code,$type)
 	{
-		$html = file_get_html("http://www.imdb.com/$type/$code");
+		$html = file_get_html("http://www.imdb.$wich/$type/$code");
 		$this->get_imdb_infos($html,'div[class=info]');
 		$this->clear_unused_infos();
 		$this->get_imdb_rating();
@@ -40,7 +46,7 @@ class WebInfo
 	function get_imdb_rating() {
 		$tmp = $this->clean_index($this->imdb_info['user_rating'][4]);
 		$tmp = substr($tmp,0,strrpos($tmp,'/'));
-		$this->imdb_info['user_rating'] = $tmp;
+		$this->imdb_clean_info['rating'] = $tmp;
 	}
 	
 	function clean_index($text) {
@@ -60,22 +66,7 @@ class WebInfo
 	}
 	
 	function clear_unused_infos() {
-		unset($this->imdb_info['moviemeter']);
-		unset($this->imdb_info['your_rating']);
-		unset($this->imdb_info['contact']);
-		unset($this->imdb_info['tagline']);
-		unset($this->imdb_info['plot_keywords']);
 		
-		unset($this->imdb_info['user_reviews']);
-		unset($this->imdb_info['mpaa']);
-		unset($this->imdb_info['parents_guide']);
-		unset($this->imdb_info['sound_mix']);
-		
-		unset($this->imdb_info['certification']);
-		unset($this->imdb_info['goofs']);
-		unset($this->imdb_info['movie_connections']);
-		unset($this->imdb_info['newsdesk
-(601_articles)']);
 	}
 	
 	
