@@ -218,12 +218,15 @@ public class GenXML {
 			}
 
 			
-			Process p = Runtime.getRuntime().exec("./externals/MediaInfo.exe --OUTPUT=xml \"" + movieFile.getAbsolutePath() + "\"");
+			Process p = Runtime.getRuntime().exec("./externals/MediaInfo.exe --OUTPUT=xml --Logfile=\"" + movieFile.getAbsolutePath() + ".log\" \"" + movieFile.getAbsolutePath() + "\"");
 //			InputStreamReader is = new InputStreamReader(p.getInputStream(), "UTF8");
 
 			
 			DocumentBuilderFactory midbfac = DocumentBuilderFactory.newInstance();
 			DocumentBuilder midocBuilder = midbfac.newDocumentBuilder();
+			
+			
+			//Document midoc = midocBuilder.parse();
 			Document midoc = midocBuilder.parse(p.getInputStream());
 
 			//doc.importNode(midoc.getChildNodes(), true);
