@@ -50,9 +50,9 @@ public class WebFetcher extends Thread {
 				String b64search = Base64.encodeBase64URLSafeString(search.getBytes()); 
 				
 				if (search.length() < 2) {
-					url = new URL("http://192.168.2.2/videomonkey/proxy.php?url=" + b64url);
+					url = new URL("http://www.videomonkey.de/proxy.php?url=" + b64url);
 				} else {
-					url = new URL("http://192.168.2.2/videomonkey/proxy.php?url=" + b64url + "&search=" + b64search);
+					url = new URL("http://www.videomonkey.de/proxy.php?url=" + b64url + "&search=" + b64search);
 				}
 				
 				

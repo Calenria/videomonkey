@@ -28,9 +28,9 @@ public class Movie extends Thread {
 	private File movie;
 	private File movieNfo;
 	private static Logger log = Logger.getLogger(Movie.class);
-	public static boolean isMovieReady = false;
+	public boolean isMovieReady = false;
 
-	public static boolean isMovieSearchReady = false;
+	public boolean isMovieSearchReady = false;
 
 	String fullFileName;
 	String fileNameExt;
@@ -38,7 +38,7 @@ public class Movie extends Thread {
 
 	String searchName;
 	String searchURL = "http://www.imdb.com/find?s=tt&q=";
-	String searchProxy = "http://192.168.2.2/videomonkey/proxy.php?url=";
+	String searchProxy = "http://www.videomonkey.de/proxy.php?url=";
 
 	String searchURLB64;
 	String searchNameB64;
