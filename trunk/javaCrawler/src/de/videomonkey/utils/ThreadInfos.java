@@ -9,14 +9,23 @@ public class ThreadInfos extends Thread {
 	protected Movie movie;
 	protected String currentStatus;
 	protected Boolean isMovieReady = false;
-	protected Boolean useMovie = true;
+	protected Boolean renameMovieFile = false;
+	protected Boolean createMovieNfo = false;
 
-	public Boolean getUseMovie() {
-		return useMovie;
+	public Boolean getCreateMovieNfo() {
+		return createMovieNfo;
 	}
 
-	public void setUseMovie(Boolean useMovie) {
-		this.useMovie = useMovie;
+	public void setCreateMovieNfo(Boolean createMovieNfo) {
+		this.createMovieNfo = createMovieNfo;
+	}
+
+	public Boolean getRenameMovieFile() {
+		return renameMovieFile;
+	}
+
+	public void setRenameMovieFile(Boolean renameMovieFile) {
+		this.renameMovieFile = renameMovieFile;
 	}
 
 	public ThreadInfos(String path, Movie movie) {

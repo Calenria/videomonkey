@@ -29,7 +29,7 @@ public class Search implements TableModelListener {
 	private ThreadInfosTableModel model;
 	public static HashMap<String, Movie> movies = new HashMap<String, Movie>();
 
-	ArrayList<File> fileList = FileUtils.searchFile(new File("C:\\TASTEMP"),Movie.get_wantedExtensions());
+	ArrayList<File> fileList = FileUtils.searchFile(new File("C:\\TASTEMP"),Movie.getWantedExtensions());
 
 	public Search() throws InterruptedException {
 		PropertyConfigurator.configureAndWatch("log.properties", 60 * 1000);
