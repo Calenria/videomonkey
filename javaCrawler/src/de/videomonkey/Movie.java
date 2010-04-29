@@ -290,7 +290,7 @@ public class Movie extends Thread {
 		return movie;
 	}
 
-	public static ArrayList<String> get_wantedExtensions() {
+	public static ArrayList<String> getWantedExtensions() {
 
 		ArrayList<String> extension = new ArrayList<String>();
 		extension.add(".avi");
