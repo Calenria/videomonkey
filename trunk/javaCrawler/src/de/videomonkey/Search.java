@@ -11,10 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
-import javax.swing.table.AbstractTableModel;
+import javax.swing.event.TableModelListener;
 
 import org.apache.log4j.PropertyConfigurator;
 
+import de.videomonkey.models.ThreadInfosTableModel;
 import de.videomonkey.utils.FileUtils;
 import de.videomonkey.utils.ThreadInfos;
 
@@ -22,9 +23,12 @@ import de.videomonkey.utils.ThreadInfos;
  * @author Azrail
  * 
  */
-public class Search extends AbstractTableModel {
+public class Search implements TableModelListener {
 
-	public static HashMap<String, Movie> movie = new HashMap<String, Movie>();
+	private JTable table;
+	private ThreadInfosTableModel model;
+	
+	public static HashMap<String, Movie> movies = new HashMap<String, Movie>();
 
 	// private static Logger log = Logger.getRootLogger();
 
@@ -39,14 +43,19 @@ public class Search extends AbstractTableModel {
 
 		rowCount = fileList.size();
 		
+		model = new ThreadInfosTableModel();
+		
+		table = new JTable();
+
+		//table.setModel(this);
+		table.setModel(model);
+		model.addTableModelListener(this);
+
 		for (File file : fileList) {
 			ThreadInfos thread = new ThreadInfos(file.getAbsolutePath(),new Movie(file));
+			model.addRow(thread);
 			thread.start();
 		}
-
-		JTable table = new JTable();
-
-		table.setModel(this);
 
 		JFrame frame = new JFrame();
 		frame.getContentPane().add(new JScrollPane(table));
@@ -55,17 +64,18 @@ public class Search extends AbstractTableModel {
 		frame.setVisible(true);
 		
 		while (Thread.activeCount() > 2) {
-			System.out.println(Thread.activeCount());
-			System.out.println(movie.toString());
-			System.out.println(fileList.get(0).getAbsolutePath());
-			System.out.println(movie.size());
+//			System.out.println(Thread.activeCount());
+//			System.out.println(movies.toString());
+//			System.out.println(fileList.get(0).getAbsolutePath());
+//			System.out.println(movies.size());
 			
-			for (int i = 0; i < movie.size(); i++) {
-				String imdb = ((Movie) movie.get(fileList.get(i).getAbsolutePath())).getMovieIMDBId();
+			for (int i = 0; i < movies.size(); i++) {
+				String imdb = (movies.get(fileList.get(i).getAbsolutePath())).getMovieIMDBId();
 				System.out.println(imdb);
-				System.out.println("table.getValueAt(0, 1): " + table.getValueAt(0, 1));
-				table.setValueAt( imdb, i, 1);
-				this.fireTableDataChanged();
+//				System.out.println("table.getValueAt(0, 1): " + table.getValueAt(0, 1));
+//				table.setValueAt( imdb, i, 1);
+//				this.fireTableDataChanged();
+//				table.validate();
 			}
 			
 			
@@ -77,27 +87,34 @@ public class Search extends AbstractTableModel {
 	}
 	
 	
-	public int getRowCount() {
-		return rowCount;
-	}
-
-	public int getColumnCount() {
-		return 3;
-	}
-
-	public Object getValueAt(int row, int col) {
-		if (col == 0)
-			return fileList.get(row).getName();
-		else if (col == 1)
-			return fileList.get(row).getAbsolutePath();
-		else 
-			return "" + (row * row);
-
-	}
+//	public int getRowCount() {
+//		return rowCount;
+//	}
+//
+//	public int getColumnCount() {
+//		return 3;
+//	}
+//
+//	public Object getValueAt(int row, int col) {
+//		if (col == 0)
+//			return fileList.get(row).getName();
+//		else if (col == 1)
+//			return fileList.get(row).getAbsolutePath();
+//		else 
+//			return "" + (row * row);
+//
+//	}
 	
 	public static void main(String[] args) throws InterruptedException {
 			new Search();
 
+	}
+
+
+	@Override
+	public void tableChanged(TableModelEvent e) {
+		System.out.println(e);
+		table.validate();
 	}
 
 }

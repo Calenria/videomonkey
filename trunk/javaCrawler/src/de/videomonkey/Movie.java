@@ -98,7 +98,7 @@ public class Movie extends Thread {
 				log.fatal("IOException" + e.getLocalizedMessage());
 			}
 
-			if (imdbid.isEmpty()) {
+			if (imdbid.length()==0) {
 				log.debug("IMDB ID in (" + movieNfo.getAbsolutePath()
 						+ ") nicht gefunden");
 			} else {
@@ -128,7 +128,8 @@ public class Movie extends Thread {
 	
 	private boolean fetchOFDB(String imdbid) {
 		WebInfoOFDB ofdb = new WebInfoOFDB(imdbid); 
-		if (!ofdb.get_title().isEmpty()) {
+		//if (!ofdb.get_title().isEmpty()) {
+		if (ofdb.get_title().length()>0) {
 			wiOFDB = ofdb;
 			return false;
 		}
@@ -137,7 +138,8 @@ public class Movie extends Thread {
 	
 	private boolean fetchIMDB(String imdbid) {
 		WebInfoIMDB imdb = new WebInfoIMDB(imdbid); 
-		if (!imdb.get_title().isEmpty() && !imdb.get_plot().isEmpty() && !imdb.get_releasedate().isEmpty()) {
+		//if (!imdb.get_title().isEmpty() && !imdb.get_plot().isEmpty() && !imdb.get_releasedate().isEmpty()) {
+		if (imdb.get_title().length()>0 && imdb.get_plot().length()>0 && imdb.get_releasedate().length()>0) {
 			wiIMDB = imdb;
 			return false;
 		}
@@ -172,7 +174,7 @@ public class Movie extends Thread {
 	}
 
 	public void searchIMDB() {
-		if (getMovieIMDBId().isEmpty()) {
+		if (getMovieIMDBId().length()==0) {
 			String result = fetchHTML();
 			parseHTML(result);
 		}
