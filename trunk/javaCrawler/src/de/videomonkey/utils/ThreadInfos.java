@@ -19,6 +19,7 @@ public class ThreadInfos extends Thread {
 		reg.getWebData();
 		reg.renameMovieFile();
 		reg.createNFO();
+		reg.isMovieReady = true;
 		Search.movie.put(path,reg);
 	}
 }
