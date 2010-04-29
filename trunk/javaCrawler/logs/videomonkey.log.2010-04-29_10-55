@@ -1,5 +1,0 @@
-2010-04-29 10:55:24,718 DEBUG [main] de.videomonkey.Movie: Initialisiert für C:\TASTEMP\Kick-Ass (2010).avi
-2010-04-29 10:55:24,812 DEBUG [main] de.videomonkey.Movie: IMDB ID: tt1250777 in nfo (C:\TASTEMP\Kick-Ass (2010).nfo) gefunden
-2010-04-29 10:55:29,031 DEBUG [Kick-Ass (2010).avi] de.videomonkey.Movie: C:\TASTEMP\Kick-Ass (2010).avi entspricht schon der Bennenungs Methode
-2010-04-29 10:55:29,140 INFO  [Kick-Ass (2010).avi] de.videomonkey.utils.GenXML: Generiere nfo für Kick-Ass
-2010-04-29 10:55:30,359 DEBUG [Kick-Ass (2010).avi] de.videomonkey.utils.GenXML: .nfo nach C:\TASTEMP\Kick-Ass (2010).nfo geschrieben
