@@ -1,5 +1,0 @@
-2010-04-27 13:56:05,093 DEBUG [main] de.videomonkey.Movie: Initialisiert für C:\TASTEMP\Kick-Ass.avi
-2010-04-27 13:56:14,562 DEBUG [Kick-Ass.avi] de.videomonkey.Movie: Versuche datei von C:\TASTEMP\Kick-Ass.avi zu C:\TASTEMP\Kick-Ass (2010).avi umzubennenen
-2010-04-27 13:56:14,593 INFO  [Kick-Ass.avi] de.videomonkey.Movie: Movie wurde in C:\TASTEMP\Kick-Ass (2010).avi umbenannt
-2010-04-27 13:56:14,765 INFO  [Kick-Ass.avi] de.videomonkey.utils.GenXML: Generiere nfo für Kick-Ass
-2010-04-27 13:56:17,234 DEBUG [Kick-Ass.avi] de.videomonkey.utils.GenXML: .nfo nach C:\TASTEMP\Kick-Ass (2010).nfo geschrieben

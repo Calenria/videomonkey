@@ -1,5 +1,0 @@
-2010-04-27 13:48:47,999 DEBUG [main] de.videomonkey.Movie: Initialisiert für C:\TASTEMP\Kick-Ass.mkv
-2010-04-27 13:48:54,609 DEBUG [Kick-Ass.mkv] de.videomonkey.Movie: Versuche datei von C:\TASTEMP\Kick-Ass.mkv zu C:\TASTEMP\Kick-Ass (2010).mkv umzubennenen
-2010-04-27 13:48:54,640 INFO  [Kick-Ass.mkv] de.videomonkey.Movie: Movie wurde in C:\TASTEMP\Kick-Ass (2010).mkv umbenannt
-2010-04-27 13:48:55,218 INFO  [Kick-Ass.mkv] de.videomonkey.utils.GenXML: Generiere nfo für Kick-Ass
-2010-04-27 13:48:55,687 ERROR [Kick-Ass.mkv] de.videomonkey.utils.GenXML: Fehler beim erzeugen der nfo: Cannot run program "./externals/MediaInfo.exe": CreateProcess error=193, %1 ist keine zulässige Win32-Anwendung
