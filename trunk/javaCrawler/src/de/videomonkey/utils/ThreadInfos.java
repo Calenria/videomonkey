@@ -8,6 +8,16 @@ public class ThreadInfos extends Thread {
 	protected String path = "";
 	protected Movie movie;
 	protected String currentStatus;
+	protected Boolean isMovieReady = false;
+	protected Boolean useMovie = true;
+
+	public Boolean getUseMovie() {
+		return useMovie;
+	}
+
+	public void setUseMovie(Boolean useMovie) {
+		this.useMovie = useMovie;
+	}
 
 	public ThreadInfos(String path, Movie movie) {
 		this.path = path;
@@ -30,6 +40,7 @@ public class ThreadInfos extends Thread {
 		this.currentStatus = "creating nfo";
 		movie.createNFO();
 		movie.isMovieReady = true;
+		this.setMovieReady(true);
 		Search.movies.put(path,movie);
 		
 		this.currentStatus = "finished";
@@ -57,6 +68,14 @@ public class ThreadInfos extends Thread {
 
 	public void setCurrentStatus(String currentStatus) {
 		this.currentStatus = currentStatus;
+	}
+
+	public Boolean isMovieReady() {
+		return isMovieReady;
+	}
+
+	public void setMovieReady(boolean isMovieReady) {
+		this.isMovieReady = isMovieReady;
 	}
 	
 	

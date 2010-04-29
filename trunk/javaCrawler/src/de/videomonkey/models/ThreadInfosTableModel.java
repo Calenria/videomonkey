@@ -15,12 +15,12 @@ public class ThreadInfosTableModel extends AbstractTableModel {
 
 	public void addRow(ThreadInfos threadInfos) {
 		this.rows.add(threadInfos);
-		this.fireTableRowsInserted(this.rows.size() - 1, this.rows.size() - 1);
+		this.fireTableRowsInserted(this.rows.size() - 1, this.rows.size());
 	}
 
 	@Override
 	public int getColumnCount() {
-		return 3;
+		return 4;
 	}
 
 	@Override
@@ -31,23 +31,33 @@ public class ThreadInfosTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		ThreadInfos row = rows.get(rowIndex);
-		System.out.println(row);
-		System.out.println("Path: " + row.getPath());
-
+		Object val = new Object();
+		
 		switch (columnIndex) {
 			case 0:
-				row.getPath();
+				val = row.getPath();
 				break;
 			case 1:
-				row.getPath();
+				if (!row.isMovieReady()) {
+					val = "Suche noch nach Titel";
+				} else {
+					val = row.getMovie().wiIMDB.get_title();
+				}
 				break;
 			case 2:
-				row.getCurrentStatus();
+				val = row.getCurrentStatus();
+				break;
+			case 3:
+				val = row.getUseMovie();
+				//System.out.println(row.getUseMovie());
 				break;
 			default:
 				break;
 		}
-		return null;
+		
+		this.fireTableCellUpdated(rowIndex, columnIndex);
+		
+		return val;
 	}
 
 	@Override
@@ -69,8 +79,8 @@ public class ThreadInfosTableModel extends AbstractTableModel {
 		}
 	}
 
-	public Class<?> getColumnClass(int columnIndex) {
-		return String.class;
-	}
+//	public Class<?> getColumnClass(int columnIndex) {
+//		return String.class;
+//	}
 
 }

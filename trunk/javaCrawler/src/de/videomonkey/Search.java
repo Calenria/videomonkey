@@ -27,34 +27,23 @@ public class Search implements TableModelListener {
 
 	private JTable table;
 	private ThreadInfosTableModel model;
-	
 	public static HashMap<String, Movie> movies = new HashMap<String, Movie>();
 
-	// private static Logger log = Logger.getRootLogger();
+	ArrayList<File> fileList = FileUtils.searchFile(new File("C:\\TASTEMP"),Movie.get_wantedExtensions());
 
-	ArrayList<File> fileList = FileUtils.searchFile(new File("C:\\TASTEMP"), Movie.get_wantedExtensions());
-	
-	private int rowCount = 0;
-	
-	
 	public Search() throws InterruptedException {
 		PropertyConfigurator.configureAndWatch("log.properties", 60 * 1000);
-		//ArrayList<File> fileList = FileUtils.searchFile(new File("C:\\TASTEMP"), Movie.get_wantedExtensions());
 
-		rowCount = fileList.size();
-		
 		model = new ThreadInfosTableModel();
-		
 		table = new JTable();
 
-		//table.setModel(this);
 		table.setModel(model);
 		model.addTableModelListener(this);
 
 		for (File file : fileList) {
 			ThreadInfos thread = new ThreadInfos(file.getAbsolutePath(),new Movie(file));
-			model.addRow(thread);
 			thread.start();
+			model.addRow(thread);
 		}
 
 		JFrame frame = new JFrame();
@@ -62,59 +51,15 @@ public class Search implements TableModelListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-		
-		while (Thread.activeCount() > 2) {
-//			System.out.println(Thread.activeCount());
-//			System.out.println(movies.toString());
-//			System.out.println(fileList.get(0).getAbsolutePath());
-//			System.out.println(movies.size());
-			
-			for (int i = 0; i < movies.size(); i++) {
-				String imdb = (movies.get(fileList.get(i).getAbsolutePath())).getMovieIMDBId();
-				System.out.println(imdb);
-//				System.out.println("table.getValueAt(0, 1): " + table.getValueAt(0, 1));
-//				table.setValueAt( imdb, i, 1);
-//				this.fireTableDataChanged();
-//				table.validate();
-			}
-			
-			
-			//setValueAt( movie.get(fileList.get(0).getAbsolutePath()).getMovieIMDBId(), 0, 3);
-			Thread.sleep(200);
-		}
-		
-		
+
 	}
-	
-	
-//	public int getRowCount() {
-//		return rowCount;
-//	}
-//
-//	public int getColumnCount() {
-//		return 3;
-//	}
-//
-//	public Object getValueAt(int row, int col) {
-//		if (col == 0)
-//			return fileList.get(row).getName();
-//		else if (col == 1)
-//			return fileList.get(row).getAbsolutePath();
-//		else 
-//			return "" + (row * row);
-//
-//	}
-	
+
 	public static void main(String[] args) throws InterruptedException {
-			new Search();
-
+		new Search();
 	}
-
 
 	@Override
 	public void tableChanged(TableModelEvent e) {
-		System.out.println(e);
-		table.validate();
+		table.revalidate();
 	}
-
 }
