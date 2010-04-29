@@ -131,7 +131,7 @@ public class WebInfoIMDB extends WebInfosAbs {
 			plot = r.group(1).replace("|", "").trim();
 		}
 		
-		if (plot.isEmpty()) {
+		if (plot.length()==0) {
 			plot = "Kein Plot gefunden";
 		}
 		
