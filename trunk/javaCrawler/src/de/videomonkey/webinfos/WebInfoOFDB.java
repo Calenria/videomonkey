@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.MatchResult;
 
+import de.videomonkey.exceptions.MovieNotFoundException;
 import de.videomonkey.utils.WebFetcher;
 import de.videomonkey.webinfos.abstracts.WebInfosAbs;
 
@@ -39,11 +40,13 @@ public class WebInfoOFDB extends WebInfosAbs {
 
 	protected StringBuffer plotdata = new StringBuffer();
 	
-	public WebInfoOFDB(String imdbid) {
+	public WebInfoOFDB(String imdbid) throws MovieNotFoundException {
 		id = imdbid;
 
 		WebFetcher mainMovie = new WebFetcher("mainMovie","http://www.ofdb.de/view.php?page=suchergebnis&Kat=IMDb&SText=" + get_id(),false);
 
+		System.out.println(imdbid);
+		
 		mainMovie.start();
 
 		try {
@@ -81,7 +84,7 @@ public class WebInfoOFDB extends WebInfosAbs {
 	}
 	
 	
-	protected void set_search_movie() {
+	protected void set_search_movie() throws MovieNotFoundException {
 		String url = "";
 		String pattern = "(?s)Filme:<\\/b>.*?<a href=\"(.*?)\".*?\">(.*?)<\\/a>";
 		String s = data.toString();
@@ -99,8 +102,15 @@ public class WebInfoOFDB extends WebInfosAbs {
 			
 		}
 		String[] tmp = url.split("/");
-		tmp = tmp[1].split(",");
-		id = tmp[0];
+		
+		try {
+			tmp = tmp[1].split(",");
+			id = tmp[0];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Keine ofdb.de daten für " + get_id() + " gefunden");
+			throw new MovieNotFoundException();
+		}
+
 	}
 	
 	

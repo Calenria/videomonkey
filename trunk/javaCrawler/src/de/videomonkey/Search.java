@@ -3,6 +3,7 @@
  */
 package de.videomonkey;
 
+import java.awt.Dimension;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class Search implements TableModelListener {
 	private ThreadInfosTableModel model;
 	public static HashMap<String, Movie> movies = new HashMap<String, Movie>();
 
-	ArrayList<File> fileList = FileUtils.searchFile(new File("C:\\TASTEMP"),Movie.getWantedExtensions());
+	ArrayList<File> fileList = FileUtils.searchFile(new File("M:\\media1\\check java\\"),Movie.getWantedExtensions());
 
 	public Search() throws InterruptedException {
 		PropertyConfigurator.configureAndWatch("log.properties", 60 * 1000);
@@ -47,6 +48,7 @@ public class Search implements TableModelListener {
 		}
 
 		JFrame frame = new JFrame();
+		frame.setMinimumSize(new Dimension(1280, 600));
 		frame.getContentPane().add(new JScrollPane(table));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();

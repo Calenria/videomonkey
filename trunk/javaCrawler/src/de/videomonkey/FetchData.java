@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import de.videomonkey.exceptions.MovieNotFoundException;
 import de.videomonkey.utils.GenXML;
 import de.videomonkey.webinfos.WebInfoIMDB;
 import de.videomonkey.webinfos.WebInfoOFDB;
@@ -39,7 +40,12 @@ public class FetchData extends Thread {
 		
 		WebInfoIMDB imdb = new WebInfoIMDB(imdbid); 
 		//System.out.println(imdb.toString());
-		WebInfoOFDB ofdb = new WebInfoOFDB(imdbid);
+		try {
+			WebInfoOFDB ofdb = new WebInfoOFDB(imdbid);
+		} catch (MovieNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Keine ofdb.de daten für " + this.imdbid + " gefunden");
+		}
 		//System.out.println(ofdb.toString());
 		
 		

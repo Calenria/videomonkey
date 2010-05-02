@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
+import de.videomonkey.exceptions.MovieNotFoundException;
 import de.videomonkey.utils.GenXML;
 import de.videomonkey.utils.Utils;
 import de.videomonkey.webinfos.WebInfoIMDB;
@@ -117,16 +118,25 @@ public class Movie extends Thread {
 				e.printStackTrace();
 			}
 		}
-		while (fetchOFDB(getMovieIMDBId())) {
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		try {
+			while (fetchOFDB(getMovieIMDBId())) {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
+		} catch (MovieNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Keine ofdb.de daten für " + getMovie() + " (" + getMovieIMDBId() + ") gefunden");
 		}
 	}
 	
-	private boolean fetchOFDB(String imdbid) {
+	private boolean fetchOFDB(String imdbid) throws MovieNotFoundException {
+		if (imdbid == null) {
+			return false;
+		}
+		
 		WebInfoOFDB ofdb = new WebInfoOFDB(imdbid); 
 		//if (!ofdb.get_title().isEmpty()) {
 		if (ofdb.get_title().length()>0) {
@@ -139,7 +149,7 @@ public class Movie extends Thread {
 	private boolean fetchIMDB(String imdbid) {
 		WebInfoIMDB imdb = new WebInfoIMDB(imdbid); 
 		//if (!imdb.get_title().isEmpty() && !imdb.get_plot().isEmpty() && !imdb.get_releasedate().isEmpty()) {
-		if (imdb.get_title().length()>0 && imdb.get_plot().length()>0 && imdb.get_releasedate().length()>0) {
+		if (imdb.get_title() != null || imdb.get_title().length()>0 && imdb.get_plot().length()>0 && imdb.get_releasedate().length()>0) {
 			wiIMDB = imdb;
 			return false;
 		}
@@ -173,14 +183,14 @@ public class Movie extends Thread {
 		return name;
 	}
 
-	public void searchIMDB() {
+	public void searchIMDB() throws MovieNotFoundException {
 		if (getMovieIMDBId().length()==0) {
 			String result = fetchHTML();
 			parseHTML(result);
 		}
 	}
 
-	private void parseHTML(String result) {
+	private void parseHTML(String result) throws MovieNotFoundException {
 
 		ArrayList<HashMap<String, String>> popularTitles = new ArrayList<HashMap<String, String>>();
 
@@ -230,8 +240,10 @@ public class Movie extends Thread {
 					"IMDBid für " + getMovie().getName() + " eingeben",
 					"Keine ergebnisse für " + suche + " gefunden :(",
 					JOptionPane.QUESTION_MESSAGE);
-			if (imdbid.length() > 1) {
+			if (imdbid != null) {
 				setMovieIMDBId(imdbid);
+			} else {
+				throw new MovieNotFoundException();
 			}
 
 		} else {

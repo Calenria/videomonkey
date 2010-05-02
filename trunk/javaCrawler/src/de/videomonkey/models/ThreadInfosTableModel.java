@@ -19,6 +19,11 @@ public class ThreadInfosTableModel extends AbstractTableModel {
 	}
 
 	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex) {
+		return true;
+	}
+	
+	@Override
 	public String getColumnName(int column) {
 
 		String val = "";
@@ -69,7 +74,7 @@ public class ThreadInfosTableModel extends AbstractTableModel {
 			if (!row.isMovieReady()) {
 				val = "Suche noch nach Titel";
 			} else {
-				val = row.getMovie().wiIMDB.get_title();
+				val = row.getMovie().wiIMDB.get_title() + " (" + row.getMovie().wiIMDB.get_year() + ")";
 			}
 			break;
 		case 2:
