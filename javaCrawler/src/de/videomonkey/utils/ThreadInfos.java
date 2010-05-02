@@ -2,6 +2,7 @@ package de.videomonkey.utils;
 
 import de.videomonkey.Movie;
 import de.videomonkey.Search;
+import de.videomonkey.exceptions.MovieNotFoundException;
 
 public class ThreadInfos extends Thread {
 	
@@ -38,21 +39,29 @@ public class ThreadInfos extends Thread {
 		this.setName(movie.getMovie().getName());
 		
 		this.currentStatus = "searching IMDb";
-		movie.searchIMDB();
-		
-		this.currentStatus = "gathering Data";
-		movie.getWebData();
-		
-		this.currentStatus = "renaming movie file";
-		movie.renameMovieFile();
-		
-		this.currentStatus = "creating nfo";
-		movie.createNFO();
-		movie.isMovieReady = true;
-		this.setMovieReady(true);
-		Search.movies.put(path,movie);
-		
-		this.currentStatus = "finished";
+		try {
+			movie.searchIMDB();
+			
+			this.currentStatus = "gathering Data";
+			movie.getWebData();
+			
+			//this.currentStatus = "renaming movie file";
+			//movie.renameMovieFile();
+			
+			//this.currentStatus = "creating nfo";
+			//movie.createNFO();
+			movie.isMovieReady = true;
+			this.setMovieReady(true);
+			Search.movies.put(path,movie);
+			
+			this.currentStatus = "finished";
+		} catch (MovieNotFoundException e) {
+			// TODO Auto-generated catch block
+			
+			this.currentStatus = "canceled";
+		}
+
+
 	}
 
 	public String getPath() {
