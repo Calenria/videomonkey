@@ -218,6 +218,22 @@ public class WebInfoIMDB extends WebInfosAbs {
 		tagline = tagline.trim();
 	}
 
+	protected void set_tagline() {
+		String pattern = "(?s)Plot Keywords:<\\/h5>.*?<div class=\"info-content\">.*?<span>(.*?)<\\/span><\\/div>";
+		String s = data.toString();
+	
+		for (MatchResult r : findMatches(pattern, s)) {
+			String secpattern = "<a.*?>(.*?)<\\/a>";
+			String submatch = r.group(1).replaceAll("\n", "");
+	
+			for (MatchResult sr : findMatches(secpattern, submatch)) {
+				tagline += sr.group(1) + " ";
+			}
+		}
+	
+		tagline = tagline.trim();
+	}
+
 	protected void set_outline() {
 		String pattern = "(?s)Plot:<\\/h5>.*?<div class=\"info-content\">(.*?)<a.*?<\\/div>";
 		String s = data.toString();
